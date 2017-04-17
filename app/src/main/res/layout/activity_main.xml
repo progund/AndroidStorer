@@ -24,6 +24,7 @@
       android:layout_height="wrap_content"
       android:onClick="saveMember"
       android:text="@string/save_text" />
+
   </LinearLayout>
 
   <ListView

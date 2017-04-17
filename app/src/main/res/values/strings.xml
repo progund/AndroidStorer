@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name">Storer</string>
   <string name="save_text">Save</string>
+  <string name="delete_all_text">Delete all</string>
 </resources>
