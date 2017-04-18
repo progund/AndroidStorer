@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import java.util.List;
 import se.juneday.android.storer.se.juneday.android.storer.db.DBMemberStore;
+import se.juneday.android.storer.se.juneday.android.storer.db.FakeMemberStore;
 
 public class MainActivity extends AppCompatActivity {
 

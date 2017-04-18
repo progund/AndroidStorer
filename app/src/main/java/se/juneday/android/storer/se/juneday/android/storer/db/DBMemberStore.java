@@ -21,7 +21,7 @@ public class DBMemberStore implements MemberStore {
   private SQLiteDatabase database;
   private MemberStoreHelper dbHelper;
   private String[] allColumns = { MemberStoreHelper.COLUMN_ID,
-      MemberStoreHelper.COLUMN_MEMBER_NAME };
+          MemberStoreHelper.COLUMN_MEMBER_NAME };
 
   public DBMemberStore(Context context) {
     Log.d(LOG_TAG, "DBMemberStore()");
@@ -47,10 +47,10 @@ public class DBMemberStore implements MemberStore {
     ContentValues values = new ContentValues();
     values.put(MemberStoreHelper.COLUMN_MEMBER_NAME, member.name());
     long insertId = database.insert(MemberStoreHelper.TABLE_MEMBERS, null,
-        values);
+            values);
     Cursor cursor = database.query(MemberStoreHelper.TABLE_MEMBERS,
-        allColumns, MemberStoreHelper.COLUMN_ID + " = " + insertId, null,
-        null, null, null);
+            allColumns, MemberStoreHelper.COLUMN_ID + " = " + insertId, null,
+            null, null, null);
     cursor.moveToFirst();
     Member newMember = cursorToMember(cursor);
     cursor.close();
@@ -60,25 +60,17 @@ public class DBMemberStore implements MemberStore {
   public void deleteMember(Member m) {
     Log.d(LOG_TAG, "deleteMember()");
     database.delete(MemberStoreHelper.TABLE_MEMBERS, MemberStoreHelper.COLUMN_MEMBER_NAME
-        + " = '" + m.name() + "'", null);
+            + " = '" + m.name() + "'", null);
     System.out.println("Member deleted: " + m);
   }
 
   public List<Member> getAllMembers() {
     Log.d(LOG_TAG, "getAllMembers()");
-/*
-    Log.d(LOG_TAG, "getAllMembers()");
-    List<Member> members = new ArrayList<>();
-    members.add(new Member("Diego"));
-    members.add(new Member("Batistuta"));
-    members.add(new Member("Mario"));
-    return members;
- */
 
     List<Member> members = new ArrayList<>();
 
     Cursor cursor = database.query(MemberStoreHelper.TABLE_MEMBERS,
-        allColumns, null, null, null, null, null);
+            allColumns, null, null, null, null, null);
 
     cursor.moveToFirst();
     while (!cursor.isAfterLast()) {
